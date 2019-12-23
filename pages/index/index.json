@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "SearIput": "../../compents/SearIput/SearIput"
+  }
+}

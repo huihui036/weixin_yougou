@@ -1,0 +1,47 @@
+<view class="detailItem">
+  <swiper indicator-dots autoplay circular>
+    <swiper-item class="goodesdetail" wx:for="{{goodsdatels.pics}}" wx:key='pics_id'>
+      <image mode="widthFix" src='{{item.pics_mid}}'></image>
+    </swiper-item>
+  </swiper>
+</view>
+<view class="goods_price">￥{{goodsdatels.goods_price}}</view>
+<view class="goodsname_row">
+  <view class="goodsname">{{goodsdatels.goods_name}}</view>
+  <view class="goodseleco">
+    <text class="iconfont icon-shoucang"></text>
+    <view class="seletttex"> 收藏</view>
+  </view>
+</view>
+<view class="detagood_info">
+  <view class="info_tiel">商品详情</view>
+  <view class="info_comtent">
+    <!-- 富文本 -->
+    <rich-text nodes="{{goodsdatels.goods_introduce}}">
+
+    </rich-text>
+  </view>
+</view>
+<view class="botetabs">
+  <view class="iconsmtab">
+    <view class="iconfont icon-kefu"></view>
+    <view class="icontex">客服</view>
+    <button open-type="contact"></button>
+  </view>
+  <view class="iconsmtab">
+    <view class="iconfont icon-fenxiang"></view>
+    <view>分享</view>
+    <button open-type="share"></button>
+
+  </view>
+  <navigator class="iconsmtab" url="/pages/cart/index" open-type="switchTab">
+    <view class="iconfont icon-icon22fuzhi"></view>
+    <view>购物车</view>
+  </navigator>
+  <view class="cartbats" bindtap="delataddgoods">
+    加入购物车
+  </view>
+  <view class="buybats">
+    立即购买
+  </view>
+</view>

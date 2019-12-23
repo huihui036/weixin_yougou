@@ -1,0 +1,76 @@
+<view class="userheader_info">
+  <view wx:if="{{userinfo.avatarUrl}}" class="ueshaerdata">
+    <view class="bagimgg">
+      <image src="{{userinfo.avatarUrl}}"></image>
+    </view>
+    <view class="usrahandes">
+      <view class="uesrhang_img">
+        <image src="{{userinfo.avatarUrl}}"></image>
+      </view>
+      <view class="user_name">{{userinfo.nickName}}</view>
+    </view>
+  </view>
+  <view wx:else class="userlogin">
+    <button type="default" plain open-type="getUserInfo" bindgetuserinfo="handlegetuserinfo">用户登入</button>
+  </view>
+</view>
+<view class="userinfcenter">
+  <view class="history_tabs">
+    <navigator>
+      <view class="icon_tabs ">0</view>
+      <view class="historytex">收藏的店铺</view>
+    </navigator>
+    <navigator>
+      <view class="icon_tabs  ">0</view>
+      <view class="historytex">收藏的商品</view>
+    </navigator>
+    <navigator>
+      <view class="icon_tabs ">0</view>
+      <view class="historytex">关注的商品</view>
+    </navigator>
+    <navigator>
+      <view class="icon_tabs ">0</view>
+      <view class="historytex">我的足迹</view>
+    </navigator>
+  </view>
+  <!--订单-->
+  <view class="myorder_wap">
+    <view class="ordde_title">我的订单</view>
+    <view class="myorse_tab">
+      <navigator>
+        <text class="iconfont icon-ding_dan ">
+        </text>
+        <view class="historytex">全部订单</view>
+      </navigator>
+      <navigator>
+        <text class="iconfont  icon-daishouhuo">
+        </text>
+        <view class="historytex">待付款</view>
+      </navigator>
+      <navigator>
+        <text class="iconfont icon-fukuanchenggong ">
+        </text>
+        <view class="historytex">待收货</view>
+      </navigator>
+      <navigator>
+        <text class="iconfont icon-tuihuotuikuan_dianpu ">
+        </text>
+        <view class="historytex">退货/退款</view>
+      </navigator>
+    </view>
+  </view>
+  <!--订单end-->
+  <!--收获地址-->
+
+  <view class="addres_info">收获地址管理</view>
+
+  <view class="contactuser_info">
+    <view class="contactuser contactuser_one">
+      <text>联系电话</text>
+      <text>18850****7184</text>
+    </view>
+    <view class="contactuser ">关于我们</view>
+    <view class="contactuser">意见修改</view>
+  </view>
+  <view class="recommend_info">应该推荐给朋友</view>
+</view>

@@ -1,0 +1,67 @@
+<view>
+  <view class="addadries" wx:if="{{!useraddres.userName}}">
+    <view class="butunadd">
+      <button bindtap="getserAdres" type="primary" plain>添加收货地址</button>
+    </view>
+  </view>
+  <view class="useraddresdata" wx:else>
+    <view class="leftdata">
+      <view class="name">收货人:{{useraddres.userName}}</view>
+      <view class="addres">
+        {{useraddres.provinceName}}{{useraddres.cityName}}{{useraddres.countyName}}{{useraddres.detailInfo}}
+      </view>
+    </view>
+    <view class="ringt_phone">{{useraddres.telNumber}}</view>
+  </view>
+</view>
+<view class="listmain">
+  <view class="title">购物车</view>
+  <view wx:if="{{catcarts.length!==0}}">
+    <view class="cart_main">
+      <view class="itmesdata" wx:for="{{catcarts}}" wx:key="goods_id">
+        <view class="cheboke">
+          <checkbox-group data-id="{{item.goods_id}}" bindchange="changechek">
+            <checkbox checked='{{item.cheack}}'></checkbox>
+          </checkbox-group>
+        </view>
+        <view class="goodimage">
+          <navigator>
+            <image mode="widthFix" src='{{item.goods_small_logo}}'></image>
+          </navigator>
+        </view>
+        <view class="rigtmain">
+          <view class="goodsnames">{{item.goods_name}}</view>
+          <view class="goodsnbotma">
+            <view class="goods_price">￥{{item.goods_price}}</view>
+            <view class="goods_numben">
+              <view class="setnumber" data-id="{{item.goods_id}}" bindtap="reducegoodsnumer">-</view>
+              <view class="goodsname">{{item.num}}</view>
+              <view class="setnumber" data-id="{{item.goods_id}}" bindtap="addgoodsnumer">+</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="cartnull" wx:else>
+    <image mode="widthFix" src="../../iconimgs/cartnull.gif"></image>
+    <navigator class="goodscatnull" url="/pages/index/index" open-type="switchTab">
+      去首页逛逛吧
+    </navigator>
+  </view>
+
+</view>
+<view class="cattoosbootem">
+  <view class="btomtabsall">
+    <view class="slectbo">
+      <checkbox-group bindchange="changechek">
+        <checkbox checked="{{cheackall}}">全选</checkbox>
+      </checkbox-group>
+    </view>
+    <view class="catr_good_price">
+      <view class="catr_good_price_row">总价：<text>￥{{goodpric}}</text></view>
+      <view class="row_allprie">包括运费</view>
+    </view>
+    <view class="alltoos" bindtap="handelPya">结算({{goodnubers}})</view>
+  </view>
+</view>

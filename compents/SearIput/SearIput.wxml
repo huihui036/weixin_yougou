@@ -1,0 +1,4 @@
+<view class="searbox">
+  <navigator url="/pages/search/index" open-type="navigate" ><text class="iconfont icon-tubiao-" style="font-size: 48srpx"></text>搜索
+  </navigator>
+</view>

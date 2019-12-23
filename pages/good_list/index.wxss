@@ -1,0 +1,34 @@
+.goodItmesfist .goodItmes {
+  border-bottom: 2rpx solid #cccccc;
+  display: flex;
+}
+.goodItmesfist .goodItmes .leftimgae {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.goodItmesfist .goodItmes .leftimgae image {
+  width: 70%;
+}
+.goodItmesfist .goodItmes .right_godds_items {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-right: 20rpx;
+}
+.goodItmesfist .goodItmes .right_godds_items .goods_names {
+  position: relative;
+  top: -25rpx;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.goodItmesfist .goodItmes .right_godds_items .goods_prices {
+  position: relative;
+  top: 10rpx;
+  font-size: 36rpx;
+  color: var(--themeColor);
+}

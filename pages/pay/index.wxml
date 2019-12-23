@@ -1,0 +1,48 @@
+<view>
+  <view class="useraddresdata" >
+    <view class="leftdata">
+      <view class="name">收货人:{{useraddres.userName}}</view>
+      <view class="addres">
+        {{useraddres.provinceName}}{{useraddres.cityName}}{{useraddres.countyName}}{{useraddres.detailInfo}}
+      </view>
+    </view>
+    <view class="ringt_phone">{{useraddres.telNumber}}</view>
+  </view>
+</view>
+<view class="listmain">
+  <view class="title">购物车</view>
+
+    <view class="cart_main">
+      <view class="itmesdata" wx:for="{{catcarts}}" wx:key="goods_id">
+     
+        <view class="goodimage">
+          <navigator>
+            <image mode="widthFix" src='{{item.goods_small_logo}}'></image>
+          </navigator>
+        </view>
+        <view class="rigtmain">
+          <view class="goodsnames">{{item.goods_name}}</view>
+          <view class="goodsnbotma">
+            <view class="goods_price">￥{{item.goods_price}}</view>
+            <view class="goods_numben">
+              <view class="setnumber" > x</view>
+              <view class="goodsname">{{item.num}}</view>
+             
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+
+</view>
+<view class="cattoosbootem">
+  <view class="btomtabsall">
+  
+    <view class="catr_good_price">
+      <view class="catr_good_price_row">总价：<text>￥{{goodpric}}</text></view>
+      <view class="row_allprie">包括运费</view>
+    </view>
+    <view class="alltoos" bindtap="handelPya_prece">结算({{goodnubers}})</view>
+  </view>
+</view>

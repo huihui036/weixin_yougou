@@ -1,0 +1,84 @@
+.detailItem swiper {
+  height: 50vh;
+  text-align: center;
+}
+.detailItem swiper image {
+  width: 80%;
+}
+.goods_price {
+  font-weight: 600;
+  font-size: 32rpx;
+  color: var(--themeColor);
+  padding-left: 20rpx;
+  margin-top: 20rpx;
+}
+.goodsname_row {
+  border-bottom: 10rpx solid #ccc;
+  padding: 20rpx;
+  display: flex;
+}
+.goodsname_row .goodsname {
+  flex: 5;
+  font-size: 30rpx;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.goodsname_row .goodseleco {
+  border-left: 2rpx solid #000;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.detagood_info .info_tiel {
+  font-size: 36rpx;
+  color: var(--themeColor);
+  font-weight: 700;
+  padding: 20rpx 30rpx;
+  border-bottom: 10rpx solid #ccc;
+}
+.botetabs {
+  border-top: 1px solid #ccc;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 90rpx;
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+}
+.botetabs .iconsmtab {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+}
+.botetabs .iconsmtab button {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100;
+}
+.botetabs .cartbats {
+  flex: 2;
+  text-align: center;
+  line-height: 90rpx;
+  font-size: 33rpx;
+  color: #ffffff;
+  background-color: #f1860c;
+}
+.botetabs .buybats {
+  flex: 2;
+  text-align: center;
+  line-height: 90rpx;
+  font-size: 33rpx;
+  color: #ffffff;
+  background-color: #f51532;
+}

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "SearIput": "../../compents/SearIput/SearIput"
+  },
+  "navigationBarTitleText": "商品分类"
+}

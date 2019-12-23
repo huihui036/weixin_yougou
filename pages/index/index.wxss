@@ -1,0 +1,39 @@
+.swiperitemimgs {
+  width: 750rpx;
+  height: 340rpx;
+}
+.swiperitemimgs image {
+  width: 100%;
+}
+.index_catit {
+  display: flex;
+}
+.index_catit navigator {
+  padding: 20rpx;
+  flex: 1;
+}
+.index_catit navigator image {
+  width: 100%;
+}
+.index_foor .foor_group {
+  padding: 10rpx 0;
+}
+.index_foor .foor_group .titel image {
+  width: 100%;
+}
+.index_foor .foor_group .gourbox navigator {
+  float: left;
+  width: 33.33%;
+}
+.index_foor .foor_group .gourbox navigator:nth-last-child(-n + 4) {
+  height: 27.72711207vw;
+  border-left: 10rpx solid #fff;
+}
+.index_foor .foor_group .gourbox navigator:nth-child(2),
+.index_foor .foor_group .gourbox navigator:nth-child(3) {
+  border-bottom: 10rpx solid #fff;
+}
+.index_foor .foor_group .gourbox navigator image {
+  width: 100%;
+  height: 100%;
+}

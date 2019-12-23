@@ -1,0 +1,19 @@
+<SearIput></SearIput>
+<Tabs tabs="{{tabs}}" bindtabsitemchange="handletabsitemchange">
+  <block wx:if="{{tabs[0].isAcive}}">
+    <view class="goodItmesfist">
+      <navigator class="goodItmes" wx:for="{{goodlist}}" wx:key="goods_id"
+        url='/pages/goods_detail/index?goods_id={{item.goods_id}}'>
+        <view class="leftimgae">
+          <image mode="widthFix" src='{{item.goods_small_logo}}'></image>
+        </view>
+        <view class="right_godds_items">
+          <view class="goods_names">{{item.goods_name}}</view>
+          <view class="goods_prices">￥{{item.goods_price}}</view>
+        </view>
+      </navigator>
+    </view>
+  </block>
+  <block wx:if="{{tabs[1].isAcive}}">1</block>
+  <block wx:if="{{tabs[2].isAcive}}">2</block>
+</Tabs>

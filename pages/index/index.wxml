@@ -1,0 +1,35 @@
+<view class="index_header">
+  <!-- 搜索开始 -->
+  <SearIput></SearIput>
+  <!-- 搜索结束 -->
+  <!-- 轮播开始 -->
+  <swiper indicator-dots autoplay circular indicator-active-color="#eb4450" class="swiperitemimgs">
+    <swiper-item wx:for="{{imageslist}}" wx:key="goods_id">
+      <image mode="widthFix" src="{{item.image_src}}"></image>
+    </swiper-item>
+  </swiper>
+  <!-- 轮播end -->
+  <!-- 分类开始 -->
+  <view class="index_catit">
+
+    <navigator wx:for="{{CatList}}" wx:key="name">
+      <image mode="widthFix" src="{{item.image_src}}"></image>
+    </navigator>
+  </view>
+  <!-- 分类end -->
+  <!-- 楼层开始 -->
+  <view class="index_foor">
+    <view class="foor_group" wx:for="{{Floordatalist}}" wx:key="floor_title" wx:for-item="item1" wx:for-index="index1">
+      <view class="titel">
+        <image mode="widthFix" src="{{item1.floor_title.image_src}}"></image>
+      </view>
+      <view class="gourbox">
+        <navigator wx:for="{{item1.product_list}}" wx:key="name" wx:for-item="item2" wx:for-index="index2">
+
+          <image mode="{{index2 === 0? 'widthFix':'scaleToFill'}}" src="{{item2.image_src}}"></image>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <!-- 楼层end -->
+</view>

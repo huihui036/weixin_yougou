@@ -1,0 +1,18 @@
+@import '../../styles/icons.wxss' .searbox {
+  height: 90rpx;
+  padding: 10rpx;
+  background-color: #eb4450;
+}
+navigator {
+  width: 100%;
+  height: 100%;
+  color: '#999';
+  display: flex;
+  background-color: #fff;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15rpx;
+}
+text{
+  font-size: 48srpx
+}
