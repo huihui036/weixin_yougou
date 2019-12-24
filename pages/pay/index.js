@@ -56,8 +56,12 @@ Page({
 
   onShow: function() {
     var carst = wx.getStorageSync('carts') || []
-
-    this.changecartsafter(carst)
+    let carstceack = carst.filter(element => {
+      return element.cheack
+    })
+    console.log(carst)
+    console.log(carstceack)
+    this.changecartsafter(carstceack)
   },
 
   // 跳转支付页面

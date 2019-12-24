@@ -29,9 +29,9 @@
             <image mode="widthFix" src='{{item.goods_small_logo}}'></image>
           </navigator>
         </view>
-        <view class="rigtmain">
+        <view class="rigtmain" data-id="{{item.goods_id}}" bindtouchstart="touchstart" bindtouchmove="touchmove">
           <view class="goodsnames">{{item.goods_name}}</view>
-          <view class="goodsnbotma">
+          <view class=" goodsnbotma">
             <view class="goods_price">￥{{item.goods_price}}</view>
             <view class="goods_numben">
               <view class="setnumber" data-id="{{item.goods_id}}" bindtap="reducegoodsnumer">-</view>
@@ -39,6 +39,9 @@
               <view class="setnumber" data-id="{{item.goods_id}}" bindtap="addgoodsnumer">+</view>
             </view>
           </view>
+
+        </view>
+        <view class="dletegoods" data-id="{{item.goods_id}}" bindtap="deletegoods" wx:if="{{item.isTouchMove}}">删除
         </view>
       </view>
     </view>
@@ -54,7 +57,7 @@
 <view class="cattoosbootem">
   <view class="btomtabsall">
     <view class="slectbo">
-      <checkbox-group bindchange="changechek">
+      <checkbox-group bindchange="changechekall">
         <checkbox checked="{{cheackall}}">全选</checkbox>
       </checkbox-group>
     </view>

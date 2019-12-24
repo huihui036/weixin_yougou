@@ -42,6 +42,7 @@ Page({
     if (inedx === -1) {
       this.GoodsIon.num = 1
       this.GoodsIon.cheack = true
+      this.GoodsIon.isTouchMove = false
       cart.push(this.GoodsIon)
       console.log(this.GoodsIon)
     } else {

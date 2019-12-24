@@ -8,7 +8,9 @@ Page({
     catcarts: [],
     cheackall: false,
     goodnubers: 0,
-    useraddres: {}
+    useraddres: {},
+    startX: 0,
+    startY: 0
   },
 
   /**
@@ -109,6 +111,7 @@ Page({
 
     this.changecartsafter(carst)
   },
+  // 商品全选
   changechekall() {
     let { catcarts } = this.data
     catcarts.forEach((v, i) => {
@@ -118,7 +121,9 @@ Page({
       this.changecartsafter(catcarts)
     })
   },
+  // 选中单个商品
   changechek(e) {
+    console.log(e)
     const goods_id = e.currentTarget.dataset.id
     console.log(goods_id)
     let { catcarts } = this.data
@@ -127,10 +132,90 @@ Page({
     wx.setStorageSync('carts', catcarts)
     this.changecartsafter(catcarts)
   },
+  // 删除商品
+  //滑动弧度
+  angle: function(start, end) {
+    var _X = end.X - start.X,
+      _Y = end.Y - start.Y
+
+    //返回角度 /Math.atan()返回数字的反正切值
+
+    return (360 * Math.atan(_Y / _X)) / (2 * Math.PI)
+  },
+  // 第一次接触到屏幕的 X Y
+  touchstart(e) {
+    const { catcarts } = this.data
+    catcarts.forEach(element => {
+      if (element.isTouchMove) element.isTouchMove = false
+    })
+    this.setData({
+      startX: e.changedTouches[0].clientX,
+      startY: e.changedTouches[0].clientY
+    })
+  },
+  //用户滑动屏幕
+  touchmove(e) {
+    //console.log(e)
+    var that = this,
+      goods_id = e.currentTarget.dataset.id,
+      cartindex = that.data.catcarts.findIndex(
+        items => items.goods_id === goods_id
+      ),
+      startX = that.data.startX, //开始X坐标
+      startY = that.data.startY, //开始Y坐标
+      touchMoveX = e.changedTouches[0].clientX, //滑动变化坐标
+      touchMoveY = e.changedTouches[0].clientY, //滑动变化坐标
+      angle = that.angle(
+        { X: startX, Y: startY },
+        { X: touchMoveX, Y: touchMoveY }
+      )
+    that.data.catcarts.forEach((v, i) => {
+      //滑动超过30度角 return
+
+      if (Math.abs(angle) > 30) return console.log('dayu30')
+      if (i == cartindex) {
+        //右滑
+        if (touchMoveX > startX) {
+          v.isTouchMove = false
+          // console.log('右边')
+        } else {
+          // 左滑
+          v.isTouchMove = true
+        }
+      }
+    })
+    //wx.setStorageSync('carts', that.data.catcarts)
+    this.changecartsafter(that.data.catcarts)
+    //console.log(cartindex, touchMoveX, touchMoveY, Math.abs(angle))
+  },
+  // 用户点击了删除按钮
+  deletegoods(e) {
+    var that = this
+    console.log(e)
+    let goods_id = e.currentTarget.dataset.id
+    let cartindex = this.data.catcarts.findIndex(
+      items => items.goods_id === goods_id
+    )
+    wx.showModal({
+      title: '提示',
+      content: '确定删除这个商品吗？',
+      success(res) {
+        if (res.confirm) {
+          that.data.catcarts.splice(cartindex, 1)
+          wx.setStorageSync('carts', that.data.catcarts)
+          that.changecartsafter(that.data.catcarts)
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
+
   // 跳转支付页面
   handelPya() {
     let { useraddres } = this.data
     let { goodnubers } = this.data
+    let { catcarts } = this.data
     if (!useraddres.userName) {
       wx.showToast({
         title: '没有地址，请添加收获地址',
@@ -139,7 +224,7 @@ Page({
       })
       return
     }
-    if (goodnubers === 0) {
+    if (catcarts.length === 0) {
       wx.showModal({
         title: '提示',
         content: '购物车中还没商品，去首页看看吧',
@@ -155,6 +240,21 @@ Page({
       })
       return
     }
+    if (goodnubers === 0) {
+      wx.showModal({
+        title: '提示',
+        content: '你勾选你要购买的商品',
+        success(res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+      return
+    }
+
     wx.redirectTo({
       url: '/pages/pay/index'
     })

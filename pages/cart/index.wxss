@@ -93,6 +93,15 @@
   font-size: 32rpx;
   margin: 0 10rpx;
 }
+.listmain .cart_main .itmesdata .dletegoods {
+  flex: 1.5;
+  background-color: red;
+  color: #fff;
+  font-size: 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .cattoosbootem {
   position: fixed;
   width: 100%;
